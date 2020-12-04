@@ -13,8 +13,8 @@ body {
 
 /* sizes for... */
 .slider, .wrapper, .slide {
-    width: 800px;
-    height: 450px;
+    width: 1150px;
+    height: 645px;
 }
 .slider {
     position: absolute;
@@ -34,7 +34,7 @@ body {
     display: flex;
     position: relative;
     top: 0;
-    left: -800px; /*this must be same with width, for normal "jump" size*/
+    left: -1150px; /*this must be same with width, for normal "jump" size*/
     width: 10000px;
 }
 .slides img {
@@ -66,7 +66,7 @@ body {
     position: absolute;
     top: 20%;
     width: 30px;
-    height: 310px;
+    height: 445px;
     color: #fdf4ff;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 50px;
@@ -76,7 +76,7 @@ body {
 }
 .prev, .next {
     cursor: pointer;
-    padding-top: 139px; /*half height - font-size*/
+    padding-top: 205px; /*half height - font-size*/
 }
 .prev {left: -1px;}
 .next {right: -1px;}

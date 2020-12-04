@@ -1,3 +1,22 @@
+@media only screen and (max-width: 1366px) {
+    .slider, .wrapper, .slide {
+        width: 800px;
+        height: 450px;
+    }
+    .slides {
+        left: -800px;
+    }
+    .control {
+        top: 20%;
+        width: 30px;
+        height: 310px;
+    }
+    .prev, .next {
+        padding-top: 139px;
+    }
+}
+
+
 @media only screen and (max-width: 900px) {
     .slider, .wrapper, .slide {
         width: 600px;
