@@ -83,3 +83,27 @@ body {
 .prev:active, .next:active {
     transform: scale(0.75);
 }
+
+/*dots*/
+.dots-div {
+    max-width: 130px;
+    margin: 0 auto;
+}
+
+.dots-div ul {
+    padding: 0;
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    margin: 0 auto;
+    color: grey;
+}
+.dot {
+    text-align: justify;
+    font-size: 32px;
+    margin: 0 auto;
+}
+
+.active {
+    color: #3c3c3c;
+}

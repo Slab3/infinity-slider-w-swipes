@@ -1,7 +1,8 @@
 var slider = document.getElementById('slider'),
     sliderItems = document.getElementById('slides'),
     prev = document.getElementById('prev'),
-    next = document.getElementById('next');
+    next = document.getElementById('next'),
+    dotsElem = document.getElementsByClassName('dot');
 
 
 function slide(wrapper, items, prev, next) {
@@ -33,9 +34,41 @@ function slide(wrapper, items, prev, next) {
     items.addEventListener('touchmove', dragAction);
     items.addEventListener('touchend', dragEnd);
 
-    // click events
-    prev.addEventListener('click', function () { shiftSlide(-1) });
-    next.addEventListener('click', function () { shiftSlide(1) });
+    // click events - and DOTS
+    prev.addEventListener('click', function () {
+        shiftSlide(-1);
+
+        //dots -1
+        for (let i = 0; i < dotsElem.length; i++) {
+            if (index >=0 && index < dotsElem.length){
+                dotsElem[i].classList.remove('active');
+            } else {
+                dotsElem[i].classList.remove('active');
+                dotsElem[dotsElem.length - 1].classList.add('active');
+            }
+        }
+        if (index >= 0 && index < dotsElem.length) {
+            dotsElem[index].classList.add('active');
+        }
+    });
+    next.addEventListener('click', function () {
+        shiftSlide(1);
+
+        //dots 1
+        for (let i = 0; i < dotsElem.length; i++) {
+            if (index >=0 && index < dotsElem.length){
+                dotsElem[i].classList.remove('active');
+            } else {
+                dotsElem[i].classList.remove('active');
+                dotsElem[0].classList.add('active');
+            }
+        }
+        if (index >= 0 && index < dotsElem.length) {
+            dotsElem[index].classList.add('active');
+        }
+    });
+
+
 
     // transition events
     items.addEventListener('transitionend', checkIndex);
@@ -67,7 +100,7 @@ function slide(wrapper, items, prev, next) {
         items.style.left = (items.offsetLeft - posX2) + "px";
     }
 
-    function dragEnd (e) {
+    function dragEnd () {
         posFinal = items.offsetLeft;
         if (posFinal - posInitial < -threshold) {
             shiftSlide(1, 'drag');
@@ -90,9 +123,35 @@ function slide(wrapper, items, prev, next) {
             if (dir == 1) {
                 items.style.left = (posInitial - slideSize) + "px";
                 index++;
+
+                //dots w swipes 1
+                for (let i = 0; i < dotsElem.length; i++) {
+                    if (index >=0 && index < dotsElem.length){
+                        dotsElem[i].classList.remove('active');
+                    } else {
+                        dotsElem[i].classList.remove('active');
+                        dotsElem[0].classList.add('active');
+                    }
+                }
+                if (index >= 0 && index < dotsElem.length) {
+                    dotsElem[index].classList.add('active');
+                }
             } else if (dir == -1) {
                 items.style.left = (posInitial + slideSize) + "px";
                 index--;
+
+                //dots w swipes -1
+                for (let i = 0; i < dotsElem.length; i++) {
+                    if (index >=0 && index < dotsElem.length){
+                        dotsElem[i].classList.remove('active');
+                    } else {
+                        dotsElem[i].classList.remove('active');
+                        dotsElem[dotsElem.length - 1].classList.add('active');
+                    }
+                }
+                if (index >= 0 && index < dotsElem.length) {
+                    dotsElem[index].classList.add('active');
+                }
             }
         };
 
@@ -117,3 +176,4 @@ function slide(wrapper, items, prev, next) {
 }
 
 slide(slider, sliderItems, prev, next);
+
