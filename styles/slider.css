@@ -98,9 +98,10 @@ body {
     margin: 0 auto;
     color: grey;
 }
-.dot {
+.dotItem {
     text-align: justify;
-    font-size: 32px;
+    font-size: 48px;
+    line-height: 40px;
     margin: 0 auto;
 }
 
